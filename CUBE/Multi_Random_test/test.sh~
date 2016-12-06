@@ -1,0 +1,8 @@
+#!/bin/bash
+for i in {1..5}; do
+sed -i '28cprint*,\"Test'''$i'''\"' test.f90
+#sed -n '41d' test.f90
+gfortran test.f90 -o test
+./test
+done
+sed -i '28cprint*,\"Test1\"' test.f90
